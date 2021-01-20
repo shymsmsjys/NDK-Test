@@ -1,7 +1,5 @@
 package com.shcha.test;
 
-import android.util.Log;
-
 public class NativeApi {
     static {
         System.loadLibrary("csh_test-lib");

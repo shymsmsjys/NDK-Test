@@ -3,18 +3,22 @@
 //
 
 #include "jni_main.h"
+#include <android/log.h>
+
+#define LOG_TAG "jni_main.cpp"
 
 static const char *classPathName = "com/shcha/test/NativeApi";
 
+
 static jint
-add(JNIEnv *env, jobject thiz, jint a, jint b) {
+add_native(JNIEnv *env, jobject thiz, jint a, jint b) {
     int result = a + b;
     __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "add %d + %d = %d", a, b, result);
     return result;
 }
 
 static JNINativeMethod methods[] = {
-    { "add", "(II)I", (void*)add },
+    { "addNative", "(II)I", (void*)add_native },
 };
 
 jint JNI_OnLoad(JavaVM *jvm, void *) {
@@ -38,6 +42,5 @@ jint JNI_OnLoad(JavaVM *jvm, void *) {
             "ERROR: RegisterNatives");
     }
     result = JNI_VERSION_1_6;
-    g_jvmPtr = jvm;
     return result;
 }
