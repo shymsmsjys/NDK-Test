@@ -16,7 +16,7 @@ add_native(JNIEnv *env, jobject thiz, jint a, jint b) {
     return result;
 }
 
-_jstring * stringFromJni(JNIEnv *env, jobject thiz)
+jstring * stringFromJni(JNIEnv *env, jobject thiz)
 {
 #if defined(__arm__)
     #if defined(__ARM_ARCH_7A__)
@@ -50,7 +50,8 @@ _jstring * stringFromJni(JNIEnv *env, jobject thiz)
 #define ABI "unknown"
 #endif
 
-    return env->NewStringUTF("Hello from JNI !  Compiled with ABI " ABI ".");
+    return reinterpret_cast<jstring *>(env->NewStringUTF(
+            "Hello from JNI !  Compiled with ABI " ABI "."));
 }
 
 static JNINativeMethod methods[] = {
