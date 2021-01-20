@@ -3,7 +3,6 @@
 //
 
 #include "jni_main.h"
-#include <android/log.h>
 
 #define LOG_TAG "jni_main.cpp"
 
