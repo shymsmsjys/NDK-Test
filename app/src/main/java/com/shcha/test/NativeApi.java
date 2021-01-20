@@ -6,8 +6,13 @@ public class NativeApi {
     }
 
     private native int addNative (int a, int b);
+    private native String stringFromJni();
 
     public int add(int a, int b) {
         return addNative(4, 7);
+    }
+
+    public String getAbi() {
+        return stringFromJni();
     }
 }

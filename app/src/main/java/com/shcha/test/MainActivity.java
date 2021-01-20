@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.text_result);
         nativeApi = new NativeApi();
-        tv.setText("result = " + nativeApi.add(9, 10));
+        tv.setText("result = " + nativeApi.getAbi());
     }
 }
