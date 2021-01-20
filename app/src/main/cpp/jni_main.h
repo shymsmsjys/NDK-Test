@@ -16,4 +16,7 @@
                                 "\n--> %s\n----> %s:%d", \
                                 ##__VA_ARGS__, __FILE__, __FUNCTION__, __LINE__)
 
+void *t_function(void *data);
+void Notify(int n);
+
 #endif //NDK_TEST_JNI_MAIN_H

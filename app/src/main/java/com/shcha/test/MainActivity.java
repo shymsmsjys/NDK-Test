@@ -16,5 +16,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.text_result);
         nativeApi = new NativeApi();
         tv.setText("result = " + nativeApi.getAbi());
+        int ret = nativeApi.startThread();
+        Log.i("jni_test", "startThread: " + ret);
     }
 }
